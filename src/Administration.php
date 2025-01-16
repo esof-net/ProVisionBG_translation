@@ -79,7 +79,7 @@ class Administration implements Module {
     public function menu($module) {
         \AdministrationMenu::addSystem(trans('administration::index.translates'), [
             'icon' => 'globe',
-            'route' => \ProVision\Administration\Facades\Administration::routeName('translations.index'),
+            'route' => \ProVision\Administration\Facades\AdministrationFacade::routeName('translations.index'),
             'target' => '_blank'
         ]);
 
