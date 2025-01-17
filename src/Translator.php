@@ -75,7 +75,7 @@ class Translator extends \Illuminate\Translation\Translator {
      * @return bool
      */
     private function isLiveTranslate(): bool {
-        return Auth::guard(config('provision_administration.guard'))->check() && !\ProVision\Administration\Facades\AdministrationFacade::routeInAdministration() && Settings::get('live_translate');
+        return Auth::guard(config('provision_administration.guard'))->check() && !\ProVision\Administration\Facades\Administration::routeInAdministration() && Settings::get('live_translate');
     }
 
     public function load($namespace, $group, $locale) {
@@ -86,7 +86,7 @@ class Translator extends \Illuminate\Translation\Translator {
         // If a Namespace is give the Filesystem will be used
         // otherwise we'll use our database.
         // This will allow legacy support.
-        if (self::isNamespaced($namespace) && !\ProVision\Administration\Facades\AdministrationFacade::routeInAdministration()) {
+        if (self::isNamespaced($namespace) && !\ProVision\Administration\Facades\Administration::routeInAdministration()) {
             // If debug is off then cache the result forever to ensure high performance.
             if (!Config::get('app.debug') || Config::get('provision.translation.minimal')) {
                 $that = $this;
