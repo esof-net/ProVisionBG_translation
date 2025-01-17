@@ -47,7 +47,8 @@ class ServiceProvider extends \Illuminate\Translation\TranslationServiceProvider
      * @return void
      */
     public function register() {
-        $this->mergeConfigFrom(__DIR__ . '/../config/translation.php', 'provision.translation');
+        //FIXME: Fix the error: Illuminate\Contracts\Container\BindingResolutionException: Target class [config] does not exist.  
+        //$this->mergeConfigFrom(__DIR__ . '/../config/translation.php', 'provision.translation');
 
         $this->registerDatabase();
         $this->registerLoader();
